@@ -3,19 +3,19 @@ package junit.testing;
 import java.util.ArrayList;
 
 public class Guest {
-    public ProductShop productShop;
 
-    public Guest(ProductShop productShop)
-    {
-        this.productShop = productShop;
+    public String viewProducts() {
+        String product_details = "";
+        for (Products product :
+                Admin.product_list) {
+            product_details += product.getProduct_name() + " " + product.getProduct_group() + " " + product.getProduct_subgroup() + " " + product.getProduct_price() + "\n";
+        }
+        return product_details;
     }
-
-    public ArrayList<Products> viewProducts()
+    static int customer_id =1;
+    public void getRegistered(String name, String address, String phone_no)
     {
-        return productShop.viewProducts();
-    }
-    public String getRegistered()
-    {
-        return ("Guest registered.");
+        Customer customer = new Customer(customer_id++, name, address, phone_no);
+        return;
     }
 }

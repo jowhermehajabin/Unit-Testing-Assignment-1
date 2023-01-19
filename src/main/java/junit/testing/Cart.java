@@ -3,27 +3,31 @@ package junit.testing;
 import java.util.ArrayList;
 
 public class Cart {
-    public int cart_id;
 
-    ArrayList<Products> products = new ArrayList<>();
+    private int cart_id;
+    private float total_price;
+    private ArrayList<Products>cart_items = new ArrayList<Products>();
 
     public Cart(int cart_id)
     {
-        this.cart_id=cart_id;
+        this.cart_id = cart_id;
+        this.total_price = 0;
     }
 
-    public int NumberOfProducts()
-    {
-        return products.size();
+    public float getTotal_price() {
+        return total_price;
     }
 
-    public float totalPrice()
+    public void addItem(Products product)
     {
-        float total =0;
-        for (Products p:
-                products ) {
-            total+=p.product_price;
-        }
-        return total;
+
+        cart_items.add(product);
+        total_price+=product.getProduct_price();
+    }
+
+    public void removeItem(int product_id)
+    {
+        total_price-=cart_items.get(product_id).getProduct_price();
+        cart_items.remove(product_id);
     }
 }
