@@ -24,8 +24,7 @@ public class Admin {
         return product_details;
     }
 
-    public void addProducts(String name, String group, String subgroup, int price) {
-        Products product = new Products(name, group, subgroup, price);
+    public void addProducts(Products product) {
         product_list.add(product);
     }
 

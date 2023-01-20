@@ -13,9 +13,9 @@ public class Guest {
         return product_details;
     }
     static int customer_id =1;
-    public void getRegistered(String name, String address, String phone_no)
+    public String getRegistered(String name, String address, String phone_no)
     {
         Customer customer = new Customer(customer_id++, name, address, phone_no);
-        return;
+        return customer.getCustomer_name();
     }
 }

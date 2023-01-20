@@ -18,6 +18,15 @@ public class Cart {
         return total_price;
     }
 
+    public String viewCart() {
+        String product_details = "";
+        for (Products product :
+                cart_items) {
+            product_details += product.getProduct_name() + " " + product.getProduct_group() + " " + product.getProduct_subgroup() + " " + product.getProduct_price() + "\n";
+        }
+        return product_details;
+    }
+
     public void addItem(Products product)
     {
 

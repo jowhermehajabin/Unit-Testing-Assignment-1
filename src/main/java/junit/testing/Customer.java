@@ -15,6 +15,11 @@ public class Customer {
         this.cart = new Cart(customer_id);
     }
 
+    public String getCustomer_name()
+    {
+        return customer_name;
+    }
+
     public String viewProducts() {
         String product_details = "";
         for (Products product :
@@ -32,9 +37,9 @@ public class Customer {
     {
         cart.removeItem(id);
     }
-    public void buyProducts()
+    public String buyProducts()
     {
        Payment payment = new Payment(cart.getTotal_price());
-       payment.makePayment();
+      return payment.makePayment();
     }
 }
